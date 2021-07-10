@@ -1,7 +1,9 @@
 const baseURL =
-  'https://developer.nps.gov/api/v1/parks?&api_key=3vLuL2FfPRGht2DMlQbgquUINSkvZfZCPbdlnzvp';
+  'https://developer.nps.gov/api/v1/parks?limit=467&api_key=3vLuL2FfPRGht2DMlQbgquUINSkvZfZCPbdlnzvp';
 
-let movContainer = document.querySelector('.character-info');
+//https://developer.nps.gov/api/v1/parks?limit=300&api_key=3vLuL2FfPRGht2DMlQbgquUINSkvZfZCPbdlnzvp
+
+let movContainer = document.querySelector('.park-info');
 
 document.getElementById('btnFetch').addEventListener('click', fetchPeeps);
 
@@ -9,13 +11,21 @@ function fetchPeeps(e) {
   e.preventDefault();
   fetch(`${baseURL}`)
     .then((response) => response.json())
-    .then((json) => displayImage(json));
+    .then((json) => displayImage(json))
+    .catch((error) => {
+      console.log('error');
+    });
 }
+var computerNumber = Math.floor(Math.random() * 467) + 1;
 
 function displayImage(data) {
   console.log(data);
+
   console.log(data.data[3].fullName);
-  console.log(data.data[3].url);
+  console.log(data.data[466].fullName);
+  console.log(data.data[`${computerNumber}`].fullName);
+
+  console.log(computerNumber);
 
   for (let i = 0; i < data.data.length; i++) {
     let movE = document.createElement('div');
@@ -24,8 +34,8 @@ function displayImage(data) {
     movEtitle.className = 'card-title';
     let movEdescript = document.createElement('p');
     movEdescript.className = 'card-text';
-    let movImg = document.createElement('img');
-    movImg.className = 'card-img-top';
+    //let movImg = document.createElement('img');
+    //movImg.className = 'card-img-top';
     let movPoster = document.createElement('img');
     movPoster.className = 'card-img-top2';
     let movDtop = document.createElement('p');
@@ -42,14 +52,18 @@ function displayImage(data) {
 
     movEtitle.innerText = `${data.data[i].fullName} `;
     movEdescript.innerText = `${data.data[i].description}`;
-    movImg.src = data.data[i].images[0].url; // movImg.src = personUrl(
+
+    console.log(data.data[i].url);
+    console.log(data.data[i].fullName);
+
+    //movImg.src = data.data[i].images[0].url; // movImg.src = personUrl(
     //   data[i].title.replaceAll(' ', '').toLowerCase().replace("'", '')
     // );
     // movPoster.src = movUrl(
     //   data[i].title.replaceAll(' ', '').toLowerCase().replace("'", '')
     // );
     movContainer.appendChild(movE);
-    movE.appendChild(movImg);
+    //movE.appendChild(movImg);
     movE.appendChild(movPoster);
     movE.appendChild(movEtitle);
     movE.appendChild(movEdescript);

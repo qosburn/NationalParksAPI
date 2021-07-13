@@ -7,3 +7,19 @@ body {
   font-family: var(--font-one);
   font-size: 30px;
 }
+
+.container {
+  background-image: url(https://www.nps.gov/common/uploads/structured_data/3C815A59-1DD8-B71B-0B153A3989783B78.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+  height: 40vh;
+}
+.intro {
+  margin-top: 30px;
+  background-color: var(--black);
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+  height: 30vh;
+}

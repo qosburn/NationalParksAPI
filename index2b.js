@@ -31,14 +31,17 @@ function displayImage(data) {
   for (let i = 0; i < data.data.length; i++) {
     let movE = document.createElement('div');
     movE.className = 'card';
+    let movPoster = document.createElement('img');
+    movPoster.className = 'card-img-top2';
+    let movEbody = document.createElement('div');
+    movEbody.className = 'card-body';
     let movEtitle = document.createElement('h5');
     movEtitle.className = 'card-title';
     let movEdescript = document.createElement('p');
     movEdescript.className = 'card-text';
     //let movImg = document.createElement('img');
     //movImg.className = 'card-img-top';
-    let movPoster = document.createElement('img');
-    movPoster.className = 'card-img-top2';
+
     let movDtop = document.createElement('p');
     movDtop.className = 'btnDtop';
     movDtop.innerText = 'happy';
@@ -66,10 +69,11 @@ function displayImage(data) {
     movContainer.appendChild(movE);
     //movE.appendChild(movImg);
     movE.appendChild(movPoster);
-    movE.appendChild(movEtitle);
-    movE.appendChild(movEdescript);
-    movE.appendChild(movDtop);
-    movE.appendChild(a);
+    movE.appendChild(movEbody);
+    movEbody.appendChild(movEtitle);
+    movEbody.appendChild(movEdescript);
+    movEbody.appendChild(movDtop);
+    movEbody.appendChild(a);
   }
 }
 

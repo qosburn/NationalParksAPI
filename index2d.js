@@ -3,8 +3,6 @@ const baseURL =
 
 //https://developer.nps.gov/api/v1/parks?limit=300&api_key=3vLuL2FfPRGht2DMlQbgquUINSkvZfZCPbdlnzvp
 
-let parkContainer = document.querySelector('.park-info');
-
 document.getElementById('btnFetch').addEventListener('click', fetchPeeps);
 
 function fetchPeeps(e) {
@@ -19,6 +17,16 @@ function fetchPeeps(e) {
 var randNum = Math.floor(Math.random() * 467) + 1;
 
 function displayImage(data) {
+  let parkContainer = document.querySelector('.park-info');
+
+  // Need to remove previous selections
+  // while (parkContainer.firstChild) {parkContainer.removeChild(parkContainer.firstChild);
+
+  // function reset() {
+  //   parkContainer.removeChild(parkContainer.firstChild);
+  // }
+  // reset();
+
   console.log(data);
   console.log(`this is how many items ${data.data.length}`);
 
@@ -29,6 +37,9 @@ function displayImage(data) {
   console.log(data.data[`${randNum}`].entranceFees[0].cost);
   console.log(data.data[`${randNum}`].entranceFees[0].description);
   console.log(data.data[`${randNum}`].directionsInfo);
+  console.log(data.data[`${randNum}`].directionsInfo);
+  console.log(data.data[`${randNum}`].addresses[0].postalCode);
+  console.log(data.data[`${randNum}`].weatherInfo);
 
   console.log(randNum);
 
@@ -51,13 +62,30 @@ function displayImage(data) {
   let parkDLoclable = document.createElement('span');
   parkDLoclable.className = 'listGLable';
   parkDLoclable.innerText = 'Location: ';
-
   let parkDLocData = document.createElement('span');
   parkDLocData.className = 'listGData';
 
+  //parkWeather
+  let parkWeather = document.createElement('li');
+  parkWeather.className = 'list-group-item';
+  let parkWeatherlable = document.createElement('span');
+  parkWeatherlable.className = 'listGLable';
+  parkWeatherlable.innerText = 'General Weather Conditions: ';
+  let parkWeatherData = document.createElement('span');
+  parkWeatherData.className = 'listGData';
+
+  //parkAddress
+  let parkAddress = document.createElement('li');
+  parkAddress.className = 'list-group-item';
+  let parkAddlable = document.createElement('span');
+  parkAddlable.className = 'listGLable';
+  parkAddlable.innerText = 'Mailing Address: ';
+  let parkAddData = document.createElement('span');
+  parkAddData.className = 'listGData';
+
   //this is the added a -- check on add LINK
   let a = document.createElement('a');
-  let linkText = document.createTextNode('Parks Website');
+  let linkText = document.createTextNode('Visit the Parks Website');
   a.title = 'Visit the Parks Website';
   a.href = data.data[`${randNum}`].url;
   a.className = 'btn btn-primary';
@@ -66,6 +94,15 @@ function displayImage(data) {
   movEtitle.innerText = data.data[`${randNum}`].fullName;
   movEdescript.innerText = data.data[`${randNum}`].description;
   parkDLocData.innerText = data.data[`${randNum}`].directionsInfo;
+  parkWeatherData.innerText = data.data[`${randNum}`].weatherInfo;
+  parkAddData.innerText =
+    data.data[`${randNum}`].addresses[0].line1 +
+    ', ' +
+    data.data[`${randNum}`].addresses[0].city +
+    ', ' +
+    data.data[`${randNum}`].addresses[0].stateCode +
+    ' ' +
+    data.data[`${randNum}`].addresses[0].postalCode;
 
   // console.log(data.data[`${randNum}`].fullName);
 
@@ -79,8 +116,22 @@ function displayImage(data) {
   parkDLoc.appendChild(parkDLoclable);
   parkDLoc.appendChild(parkDLocData);
 
+  parkDetails.appendChild(parkWeather);
+  parkWeather.appendChild(parkWeatherlable);
+  parkWeather.appendChild(parkWeatherData);
+
+  parkDetails.appendChild(parkAddress);
+  parkAddress.appendChild(parkAddlable);
+  parkAddress.appendChild(parkAddData);
+
   movEbody.appendChild(a);
   a.appendChild(linkText);
+
+  // Possible Background images
+  //https://www.nps.gov/common/uploads/structured_data/3C7ECCCF-1DD8-B71B-0B4CB4FB1834BC1D.jpg
+  //https://www.nps.gov/common/uploads/structured_data/3C793AD5-1DD8-B71B-0B4A3C1BFA5B4C83.jpg
+  //https://www.nps.gov/common/uploads/structured_data/3C79850F-1DD8-B71B-0BC4A88BA85DE6B0.jpg
+  //https://www.nps.gov/common/uploads/structured_data/3C7A599D-1DD8-B71B-0BBDC12BEC5107B5.jpg
 
   // for (let i = 0; i < data.data.length; i++) {
   //   let movE = document.createElement('div');

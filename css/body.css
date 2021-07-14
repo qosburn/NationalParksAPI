@@ -2,24 +2,82 @@ body {
   background-color: var(--egg);
 }
 
-.card-title {
-  text-align: center;
-  font-family: var(--font-one);
-  font-size: 30px;
-}
-
 .container {
-  background-image: url(https://www.nps.gov/common/uploads/structured_data/3C815A59-1DD8-B71B-0B153A3989783B78.jpg);
+  background-image: url(https://www.nps.gov/common/uploads/structured_data/3C7ECCCF-1DD8-B71B-0B4CB4FB1834BC1D.jpg);
   background-repeat: no-repeat;
   background-position: center;
   /* background-size: cover; */
-  height: 40vh;
+  /* height: 60vh; */
 }
+.logoIcon {
+  /* background-image: url(https://www.nps.gov/common/uploads/structured_data/3C7ECCCF-1DD8-B71B-0B4CB4FB1834BC1D.jpg); */
+  position: relative;
+
+  height: 400px;
+  /* margin-top: 30px; */
+}
+
+.topIcon {
+  position: absolute;
+  top: 0;
+  /* bottom: 0; */
+  left: 0;
+  /* right: 40; */
+  height: 200px;
+  text-align: center;
+}
+.bottomIcon {
+  position: absolute;
+  /* top: 0; */
+  bottom: 0;
+  /* left: 0; */
+  right: 0;
+  height: 200px;
+  text-align: center;
+}
+
 .intro {
-  margin-top: 30px;
+  margin-top: 0px;
+  padding: 30px 30px 30px 40px;
   background-color: var(--black);
   background-repeat: no-repeat;
   background-position: center;
-  /* background-size: cover; */
-  height: 30vh;
+  font-family: var(--font-Primary);
+  color: var(--white);
+}
+
+.card-title {
+  text-align: center;
+  font-family: var(--font-Primary);
+  font-size: 40px;
+}
+
+.card-text {
+  font-family: var(--font-Secondary);
+  font-weight: 600;
+  /* font-style: italic; */
+  font-size: 22px;
+  line-height: 1.5;
+  padding: 10px 20px 30px 40px;
+}
+
+.listGLable {
+  font-family: var(--font-Secondary);
+  font-weight: 800;
+  /* font-style: italic; */
+  font-size: 16px;
+  color: var(--black);
+}
+.listGData {
+  font-family: var(--font-Secondary);
+  font-weight: 300;
+  /* font-style: italic; */
+  font-size: 18px;
+}
+.btn-primary {
+  font-family: var(--font-Primary);
+  font-weight: 600;
+  /* font-style: italic; */
+  font-size: 18px;
+  /* margin: 130px; */
 }

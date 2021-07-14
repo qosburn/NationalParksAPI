@@ -27,22 +27,22 @@ body {
   text-align: center;
 }
 .bottomIcon {
-  position: absolute;
-  /* top: 0; */
+  padding: 225px 0px 0px 160px;
+  /* position: absolute;
   bottom: 0;
-  /* left: 0; */
   right: 0;
   height: 200px;
-  text-align: center;
+  text-align: center; */
 }
 
 .intro {
-  margin-top: 0px;
+  margin-top: -65px;
   padding: 30px 30px 30px 40px;
   background-color: var(--black);
   background-repeat: no-repeat;
   background-position: center;
   font-family: var(--font-Primary);
+  letter-spacing: 1px;
   color: var(--white);
 }
 
@@ -60,7 +60,9 @@ body {
   line-height: 1.5;
   padding: 10px 20px 30px 40px;
 }
-
+.list-group-item {
+  padding: 30px 30px 30px 40px;
+}
 .listGLable {
   font-family: var(--font-Secondary);
   font-weight: 800;
@@ -76,8 +78,27 @@ body {
 }
 .btn-primary {
   font-family: var(--font-Primary);
-  font-weight: 600;
+  font-weight: 400;
   /* font-style: italic; */
   font-size: 18px;
   /* margin: 130px; */
+  background-color: #bd8112;
+  border-color: #643907;
+  letter-spacing: 1px;
+}
+.btn-primary:hover {
+  background-color: #e9a82f;
+  border-color: #643907;
+}
+h1 {
+  font-family: var(--font-Primary);
+  font-weight: 600;
+  font-size: 70px;
+}
+
+.introP {
+  font-family: var(--font-Secondary);
+  font-weight: 300;
+  /* font-style: italic; */
+  font-size: 18px;
 }
